@@ -1,0 +1,43 @@
+config FB_BRCM_KONA
+	tristate "Broadcom KONA Platform Framebuffer support"
+	depends on FB && ARM && ARCH_KONA
+	select FB_CFB_FILLRECT
+	select FB_CFB_COPYAREA
+	select FB_CFB_IMAGEBLIT
+	select KONA_DSI
+	select KONA_VC4LITE
+	select KONA_SMI
+	help
+	  This framebuffer device driver is for the Broadcom KONA platform.
+
+config FB_BRCM_CP_CRASH_DUMP_IMAGE_SUPPORT
+	bool "CP Crash Dump Image Support"
+	depends on FB_BRCM_KONA
+	default N
+	help
+	  This is used for LCD to show that cp goes into crahs dump state.
+	  If you do not know about this config, please just say 'N' here.
+
+config LCD_S6E63M0X_SUPPORT
+        tristate "LCD Panel- S6E63M0X controller"
+        default N
+        help
+	  WVGA LCD panel (S6E63M0X controller)
+	  
+config LCD_NT35510_SUPPORT
+	tristate "LCD Panel- NT35510 controller"
+	default N
+	help
+	  WVGA LCD panel (NT35510 controller)	  
+
+config SPLIT_VIDEO_CMD_MODE_INTERFACE
+	bool "Enable split video command mode interface"
+	default n
+	help
+	  Say Y here to enable seperate interface file for video and command mode lcd
+	  
+config FB_BRCM_LCD_EXIST_CHECK
+	bool "Enable LCD exist check code"
+	default n
+	help
+	  Say Y here to enable LCD exist check code
