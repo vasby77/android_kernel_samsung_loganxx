@@ -2969,23 +2969,29 @@ int camdrv_ss_s5k4ecgx_get_sensor_param_for_exif(
 	switch(state->current_flash_mode)
 	{
 		case FLASH_MODE_ON:
-		snprintf(str1, 19, "%d", 9);
+		//snprintf(str1, 19, "%d", 9);
+		strcpy(exif_param->flash,		"");
 		break;
 		
 		case FLASH_MODE_OFF:
-		snprintf(str1, 19, "%d", 0);//strcpy(str1,"OFF");
+		//snprintf(str1, 19, "%d", 0);//strcpy(str1,"OFF");
+		strcpy(exif_param->flash,		"");
 		break;
 
 		case FLASH_MODE_AUTO:
-		if(state->camera_flash_fire)
+		if(state->camera_flash_fire){
 			
-		snprintf(str1, 19, "%d", 25);//strcpy(str1,"AUTO");
-		else 
-		snprintf(str1, 19, "%d", 24);	
+		//snprintf(str1, 19, "%d", 25);//strcpy(str1,"AUTO");
+		strcpy(exif_param->flash,		"");
+		}else{ 
+		//snprintf(str1, 19, "%d", 24);
+		strcpy(exif_param->flash,		"");
+		}		
 		break;
 		
 		default:
-		strcpy(str1,"");
+		strcpy(exif_param->flash,		"");
+		//strcpy(str1,"");
 	}
 
 	strcpy(exif_param->strSoftware,		EXIF_SOFTWARE);
@@ -3029,7 +3035,7 @@ int camdrv_ss_s5k4ecgx_get_sensor_param_for_exif(
 	strcpy(exif_param->brightness,		"");
 	strcpy(exif_param->exposureBias,	"");
 	strcpy(exif_param->maxLensAperture,	(char *)"2757/1000");
-	strcpy(exif_param->flash,		str1);
+	strcpy(exif_param->flash,		"");
 	strcpy(exif_param->lensFocalLength,	(char *)"354/100");
 	strcpy(exif_param->userComments,	"User comments");
 	ret = 0;
