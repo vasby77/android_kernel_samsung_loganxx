@@ -709,6 +709,7 @@ struct kona_freq_tbl kona_freq_tbl[] = {
 	FTBL_INIT(499999, PI_OPP_NORMAL, 100),
 	FTBL_INIT(666667, PI_OPP_TURBO, TEMP_DONT_CARE),
 	FTBL_INIT(1000000, PI_OPP_SUPER_TURBO, 85),
+	FTBL_INIT(1100000, PI_OPP_SUPER_TURBO, 85),
 };
 
 void hawaii_cpufreq_init(void)
