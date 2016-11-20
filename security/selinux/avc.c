@@ -23,6 +23,7 @@
 #include <linux/skbuff.h>
 #include <linux/percpu.h>
 #include <linux/list.h>
+#include <linux/list.h>
 #include <net/sock.h>
 #include <linux/un.h>
 #include <net/af_unix.h>
@@ -46,7 +47,6 @@
 
 struct avc_entry {
 	u32			ssid;
-	u32			tsid;
 	u16			tclass;
 	struct av_decision	avd;
 	struct avc_xperms_node	*xp_node;
