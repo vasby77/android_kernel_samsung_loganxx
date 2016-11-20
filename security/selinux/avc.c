@@ -1115,12 +1115,11 @@ static noinline int avc_denied(u32 ssid, u32 tsid,
  	rcu_read_lock();
  
  	node = avc_lookup(ssid, tsid, tclass);
- 	if (unlikely(!node)) {
+ 	if (unlikely(!node))
  		node = avc_compute_av(ssid, tsid, tclass, &avd, xp_node);
- 	} else {
+ 	  else
  		memcpy(&avd, &node->ae.avd, sizeof(avd));
- 		xp_node = node->ae.xp_node;
- 	}
+
  	/* if extended permissions are not defined, only consider av_decision */
  	if (!xp_node || !xp_node->xp.len)
  		goto decision;
