@@ -1340,6 +1340,9 @@ struct task_struct {
 	unsigned in_execve:1;	/* Tell the LSMs that the process is doing an
 				 * execve */
 	unsigned in_iowait:1;
+	
+	/* task may not gain privileges */
+ 	unsigned no_new_privs:1;
 
 
 	/* Revert to default priority/policy when forking */
